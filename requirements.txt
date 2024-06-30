@@ -4,4 +4,3 @@ numpy
 joblib
 requests
 scikit-learn
-pickle
