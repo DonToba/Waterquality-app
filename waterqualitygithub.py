@@ -17,17 +17,18 @@ expected_sequence = [
 
 def load_model():
     # URL to the pre-trained model file on GitHub
-    model_url = 'https://raw.githubusercontent.com/DonToba/Waterquality-app/main/random_forest_model2.joblib'
+    model_url = 'https://raw.githubusercontent.com/DonToba/Waterquality-app/main/random_forest_model.pkl'
     
     # Download the model file
     response = requests.get(model_url)
     if response.status_code == 200:
-        with NamedTemporaryFile(delete=False, suffix=".joblib") as tmp:
+        with NamedTemporaryFile(delete=False, suffix=".pkl") as tmp:
             tmp.write(response.content)
             tmp_path = tmp.name
 
-        # Load the model using joblib
-        model = joblib.load(tmp_path)
+        # Load the model using pickle
+        with open(tmp_path, 'rb') as file:
+            model = pickle.load(file)
         return model
     else:
         st.error("Failed to download the model from GitHub.")
