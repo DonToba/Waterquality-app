@@ -1,6 +1,6 @@
 streamlit
 rasterio
-numpy
+numpy==1.26.4
 joblib
 requests
 scikit-learn==1.2.2
