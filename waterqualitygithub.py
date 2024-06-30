@@ -5,6 +5,7 @@ import joblib
 import os
 import requests
 from tempfile import NamedTemporaryFile
+import pickle
 
 # Expected file names sequence
 expected_sequence = [
